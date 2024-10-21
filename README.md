@@ -49,9 +49,7 @@
   </a>
 </p>
 
-
 ---
-## 🐍 Snake Game 
 
 <picture>
   <source
