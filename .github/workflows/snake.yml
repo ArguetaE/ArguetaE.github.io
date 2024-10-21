@@ -1,0 +1,25 @@
+name: Generate Snake Game
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Ejecuta una vez al día
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v2
+
+      - name: Generar Snake
+        uses: Platane/snk@v2
+        with:
+          github_user_name: ArguetaE  # Reemplaza esto por tu nombre de usuario en GitHub
+          outputs: dist/snake.svg
+
+      - name: Subir la serpiente generada
+        uses: actions/upload-artifact@v2
+        with:
+          name: snake-game
+          path: dist/snake.svg
