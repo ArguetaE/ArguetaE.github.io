@@ -1,5 +1,3 @@
-<h1 align="center">Hola 👋  soy Jose / unsimpleDev ✨ </h1> 
-
 🎯 Soy un *Desarrollador Front-End*, apasionado por crear interfaces web eficientes, atractivas y responsivas. Tengo conocimientos en desarrollo **Back-End** utilizando *PHP* y en la creación de proyectos completos que brindan soluciones efectivas a problemas complejos con tecnologías modernas.
 
 ---
