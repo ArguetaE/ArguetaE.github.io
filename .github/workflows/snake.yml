@@ -1,23 +1,26 @@
 name: Generate Snake Game
 
 on:
-  push:
-    branches:
-      - main
   schedule:
-    - cron: "0 22 * * *"
+    - cron: "0 22 * * *"  # Corre diariamente a las 22:00 UTC
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository content
         uses: actions/checkout@v2
 
-      - name: Generate Snake Game
-        uses: Platane/snk@v2.0.0
+      - name: Generate Snake Game from a Python script
+        uses: platane/snk@v2.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Push generated Snake game to the output branch
-        run: git push
+          github_user_name: ${{ github.repository_owner }}
+          outputs: dist/snake.svg
+
+      - name: Push Snake Game to GitHub
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          branch: ${{ github.ref }}
+          force: true
