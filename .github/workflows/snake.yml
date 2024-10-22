@@ -4,24 +4,20 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  schedule:
+    - cron: "0 22 * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository content
         uses: actions/checkout@v2
 
-      - name: Generate Snake Game from contributions
-        uses: Platane/snk@v2
+      - name: Generate Snake Game
+        uses: Platane/snk@v2.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          output: dist/snake.svg
-
-      - name: Upload snake.svg
-        uses: actions/upload-artifact@v2
-        with:
-          name: snake-game
-          path: dist/snake.svg
+          
+      - name: Push generated Snake game to the output branch
+        run: git push
