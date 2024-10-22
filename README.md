@@ -61,7 +61,7 @@
 
 
 ---
-
+## Generate Snake Game
 <picture>
   <source
     media="(prefers-color-scheme: dark)"
